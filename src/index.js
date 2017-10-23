@@ -1,9 +1,10 @@
+/** @jsx React.DOM */
 import React from 'react';
 import { render } from 'react-dom';
 
+import AppComponent  from 'AppComponent.jsx';
+
 render (
-	<div>
-	Hello!
-	</div>,
+	<AppComponent />,
 	document.getElementById('root')
 );

@@ -70,7 +70,7 @@
 /* 0 */
 /***/ (function(module, exports) {
 
-throw new Error("Module parse failed: E:\\React + webpack\\src\\index.jsx Unexpected token (5:1)\nYou may need an appropriate loader to handle this file type.\n| \r\n| render (\r\n| \t<div>\r\n| \tHello!\r\n| \t</div>,\r");
+throw new Error("Module build failed: SyntaxError: E:/React + webpack/src/index.js: Unexpected token (8:1)\n\n   6 | \n   7 | render (\n>  8 | \t<AppComponent />,\n     | \t^\n   9 | \tdocument.getElementById('root')\n  10 | );\n");
 
 /***/ })
 /******/ ]);
