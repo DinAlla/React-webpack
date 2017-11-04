@@ -1,34 +1,34 @@
-const path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
-	entry: path.join(__dirname, 'src', 'index.js'),
-	output:{
-		path: path.join(__dirname, 'public'),
-		filename: 'bundle.js',
-	},
+	devtool: 'eval-source-map',
+
+  	entry:  __dirname + "/src/index.js",
+  	output: {
+    	path: __dirname + "/public",
+    	filename: "bundle.js"
+  	},
+
 	module: {
   		rules: [
 	  		{ 
 	  			test: /\.js$/, 
 	  			exclude: /node_modules/, 
-	  			use: [
-	  				{
-	  					loader: "babel-loader"
-	  				} 
-	  			]
+	  			loader :'babel-loader'
 	  		},
 	  		{
-	  			test: /\.jsx$/,
-	  			exclude: /node_modules/,
-	  			use:[
-	  				{
-	  					loader: "babel-loader"
-	  				}
-	  			]
-	  		}
-
+	            test   :/\.jsx?$/,
+	            exclude:/node_modules/,
+	            loader :'babel-loader'
+	        }
   		]
 	},
+	
+	devServer: {
+    	contentBase: "./public",
+    	colors: true,
+    	historyApiFallback: true,
+    	inline: true
+  	},
 	plugins: [new HtmlWebpackPlugin()]
 };
 
