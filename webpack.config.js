@@ -1,4 +1,3 @@
-var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
 	devtool: 'eval-source-map',
 
@@ -14,12 +13,7 @@ module.exports = {
 	  			test: /\.js$/, 
 	  			exclude: /node_modules/, 
 	  			loader :'babel-loader'
-	  		},
-	  		{
-	            test   :/\.jsx?$/,
-	            exclude:/node_modules/,
-	            loader :'babel-loader'
-	        }
+	  		}
   		]
 	},
 	
@@ -28,8 +22,7 @@ module.exports = {
     	colors: true,
     	historyApiFallback: true,
     	inline: true
-  	},
-	plugins: [new HtmlWebpackPlugin()]
+  	}
 };
 
 
