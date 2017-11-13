@@ -3,4 +3,4 @@ import {render} from 'react-dom';
 
 import AppComponent  from './AppComponent';
 
-render(<AppComponent />, document.getElementById('root'));
+render(<AppComponent />, document.getElementById('main'));

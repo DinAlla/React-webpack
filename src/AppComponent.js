@@ -1,10 +1,15 @@
-//component
 import React from 'react';
+import DegreeOfImportanceComponent from './DegreeOfImportanceComponent';
+import TasksComponent from './TasksComponent';
+import './AppComponent.css';
 
 class AppComponent extends React.Component{
 	render(){
 		return (
-			<h1>Hello, world!</h1>
+			<div>
+				<DegreeOfImportanceComponent />
+				<TasksComponent>Lalala</TasksComponent>
+			</div>
 		);
 	}
 }
