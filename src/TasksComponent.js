@@ -12,6 +12,7 @@ class TasksComponent extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDel = this.handleDel.bind(this);
+    this.removeTodo = this.removeTodo.bind(this);
   };
 
   handleChange(e){
@@ -33,9 +34,16 @@ class TasksComponent extends React.Component {
   	});
   }
 
+  removeTodo(name){
+    this.setState({
+        items: this.state.items.filter(el => el !== name)
+    })
+  }
+
   handleDel(e){
+    this.state.items.pop();
   	this.setState({
-  		items: this.state.items.splice(/*...*/)
+  		items: this.state.items
   	}
   	);
   }
@@ -43,7 +51,7 @@ class TasksComponent extends React.Component {
   render() {
   	return(
   		<div id="Tasks">
-  		  <TodoList items={this.state.items}/>
+  		  <TodoList items={this.state.items} removeTodo={this.removeTodo}/>
   		  <input onChange={this.handleChange} value={this.state.text}/>
           <div id='btns'>
 	          <button onClick={this.handleSubmit} id="add">
