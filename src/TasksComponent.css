@@ -1,0 +1,29 @@
+div#Tasks{
+	display:inline-block;
+	position: center;
+}
+focus {
+	outline: none;
+}
+#add{
+	background-color: #d14836;
+	min-width: 97px;
+	border: 1px solid transparent;
+    color: #fff;
+}
+
+#del{
+	background-color: #fff;
+	border: 1px solid transparent;
+	margin-left: 10px; 
+}
+
+input{
+	width: 700px;
+	margin-left: 20px;
+}
+
+#btns{
+	margin-left: 20px; 
+	margin-top:10px;"
+}
