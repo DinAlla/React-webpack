@@ -3,7 +3,7 @@ import './TodoListComponent.css'
 
 class TodoListComponent extends React.Component {
   removeItem(e) {
-    this.props.props.onRemove(e);
+    this.props.removeTodo(e);
   }
 
   render() {

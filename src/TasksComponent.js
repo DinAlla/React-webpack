@@ -6,7 +6,7 @@ class TasksComponent extends React.Component {
   render() {
   	return(
   		<div id="Tasks">
-  		  <TodoList items={this.props.items} removeTodo={this.removeTodo}/>
+  		  <TodoList items={this.props.items} removeTodo={this.props.onRemove}/>
   		  <input onChange={this.props.onDataChange} value={this.props.text}/>
           <div id='btns'>
 	          <button onClick={this.props.onSubmit} id="add">

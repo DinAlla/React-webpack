@@ -30,7 +30,7 @@ class AppComponent extends React.Component{
   			id: Date.now()
   		};
   		this.setState({
-  			items: this.state.items.concat(e),
+  			items: this.state.items.concat(newItem),
   			text: ''
   		});
   	}
@@ -57,10 +57,10 @@ class AppComponent extends React.Component{
 				<TasksComponent 
 					items = {this.state.items}
 					text = {this.state.text}
-					onDataChange = {this.state.handleChange}
-					onSubmit = {this.state.handleSubmit}
-					onRemove = {this.state.removeTodo}
-					onDel = {this.state.handleDel}/>
+					onDataChange = {this.handleChange}
+					onSubmit = {this.handleSubmit}
+					onRemove = {this.removeTodo}
+					onDel = {this.handleDel}/>
 			</div>
 		);
 	}
