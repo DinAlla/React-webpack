@@ -7,10 +7,11 @@ class TodoListComponent extends React.Component {
   }
 
   render() {
+    let importance = [];
     return (
       <ul>
-        {this.props.items.map(item => (
-          <li key={item.id}>{item.text}<button onClick={()=>{this.removeItem(item)}} id="onli">Х</button></li>
+        {this.props.items.map((item, i) => (
+          <li key={item.id}>{item.text} Важность: { +this.props.importance[i] + 1}<button onClick={()=>{this.removeItem(item)}} id="onli">Х</button></li>
         ))
     	  }
       </ul>

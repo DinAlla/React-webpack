@@ -8,6 +8,7 @@ class AppComponent extends React.Component{
 		super(props);
 		this.state = {
       		items: [],
+      		importance: [],
       		text: ''
     	};
     	this.handleChange = this.handleChange.bind(this);
@@ -17,7 +18,8 @@ class AppComponent extends React.Component{
 	}
 
 	handleChange(e){
-  		this.setState({text: e.target.value });
+  		this.setState({
+  			text: e.target.value });
   	}
 
   	handleSubmit(e){
@@ -25,29 +27,41 @@ class AppComponent extends React.Component{
   		if(!this.state.text.length){
   			return;
   		}
+  		let importance = document.getElementById("importance");
   		const newItem = {
   			text: this.state.text,
   			id: Date.now()
   		};
+  		let im = this.state.importance.concat(importance.options[importance.selectedIndex].value);
   		this.setState({
   			items: this.state.items.concat(newItem),
-  			text: ''
+  			text: '',
+  			importance: im
   		});
   	}
 
   	removeTodo(name){
-    	this.setState({
-        	items: this.state.items.filter(el => el !== name),
+  		let k;
+  		let it = [];
+  		this.state.items.forEach((el, i) => {
+        	if (el == name) k = i; 
+        	else it.push(el);
+        });
+        this.state.importance.splice(k, 1)
+     	this.setState({
+        	items: it,
         	text: ''
     	})
   	}
 
   	handleDel(e){
     	this.state.items.pop();
+    	this.state.importance.pop();
   		this.setState({
-  			items: this.state.items
+  			items: this.state.items,
+  			importance: this.state.importance
   		}
-  		);
+  		)
   	}
 
 	render(){
@@ -57,6 +71,7 @@ class AppComponent extends React.Component{
 				<TasksComponent 
 					items = {this.state.items}
 					text = {this.state.text}
+					importance = {this.state.importance}
 					onDataChange = {this.handleChange}
 					onSubmit = {this.handleSubmit}
 					onRemove = {this.removeTodo}
