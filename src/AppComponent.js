@@ -14,7 +14,6 @@ class AppComponent extends React.Component{
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDel = this.handleDel.bind(this);
     this.removeTodo = this.removeTodo.bind(this);
-    this.sortData = this.sortData.bind(this);
 	}
 
 	handleChange(e){
@@ -63,39 +62,13 @@ class AppComponent extends React.Component{
   	})
   }
 
-  sortData(number){
-    console.log("this.toWrite in sortData " + this.toWrite.items[0]);
-    for(var i=0; i < this.toWrite.importance.length; i++){
-      if(this.toWrite.importance[i] == number){
-        this.toWrite.items.splice(i, 1);
-        this.toWrite.importance.splice(i,1);
-        this.toWrite.text = '';
-      }
-    }
-  }
-
 	render(){
-    this.toWrite={
-      items: this.state.items,
-      importance: this.state.importance,
-      text: this.state.text
-    }
 		return (
 			<div>
-        <div id='DegreeOfImportance'>
-          <h3>Фильтры</h3>
-          <ul>
-            <li onClick={()=>{this.sortData("1")}}>Степень важности 1</li>
-            <li>Степень важности 2</li>
-            <li>Степень важности 3</li>
-            <li>Степень важности 4</li>
-            <li>Показать все</li>
-          </ul>
-        </div>
 				<TasksComponent 
-					items = {this.toWrite.items}
-					text = {this.toWrite.text}
-					importance = {this.toWrite.importance}
+					items = {this.state.items}
+					text = {this.state.text}
+					importance = {this.state.importance}
 					onDataChange = {this.handleChange}
 					onSubmit = {this.handleSubmit}
 					onRemove = {this.removeTodo}
