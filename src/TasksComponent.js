@@ -6,9 +6,10 @@ class TasksComponent extends React.Component {
   constructor(props){
     super(props)
   }
+
   render() {
-  	return(
-  		<div id="Tasks">
+   	return(
+      <div id="Tasks">
   		  <TodoList 
           items={this.props.items} 
           removeTodo={this.props.onRemove} 
@@ -21,14 +22,14 @@ class TasksComponent extends React.Component {
 	          <button onClick={this.props.onDel} id="del">
 	          	Deleted
 	          </button>
-            <select size = "1" id = "importance">
+            <select size = "1" id = "importance" required>
               <option value="0">Степень важности 1</option>
               <option value="1">Степень важности 2</option>
               <option value="2">Степень важности 3</option>
               <option value="3">Степень важности 4</option>
             </select>
           </div>
-  		</div>
+      </div>
   	);
   }
 }

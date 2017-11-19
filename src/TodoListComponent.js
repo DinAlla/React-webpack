@@ -7,7 +7,7 @@ class TodoListComponent extends React.Component {
   }
 
   render() {
-    let importance = [];
+    console.log("this.props.items " + this.props.items);
     return (
       <ul>
         {this.props.items.map((item, i) => (
