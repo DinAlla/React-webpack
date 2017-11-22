@@ -2,16 +2,19 @@ import React from 'react';
 import './TodoListComponent.css'
 
 class TodoListComponent extends React.Component {
+  constructor(props){
+    super(props);
+  }
   removeItem(e) {
     this.props.removeTodo(e);
   }
 
   render() {
-    console.log("this.props.items " + this.props.items);
+    console.log("this.props.items in TodoListComponent " + this.props.items);
     return (
       <ul>
         {this.props.items.map((item, i) => (
-          <li key={item.id}>{item.text} Важность: { +this.props.importance[i] + 1}<button onClick={()=>{this.removeItem(item)}} id="onli">Х</button></li>
+          <li key={item.id}>{item.text} Важность: { +item.importance + 1}<button onClick={()=>{this.removeItem(item)}} id="onli">Х</button></li>
         ))
     	  }
       </ul>

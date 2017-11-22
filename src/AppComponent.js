@@ -1,19 +1,20 @@
 import React from 'react';
 import TasksComponent from './TasksComponent';
 import './AppComponent.css';
+import DegreeOfImportance from './DegreeOfImportanceComponent';
 
 class AppComponent extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {
       	items: [],
-      	importance: [],
       	text: ''
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDel = this.handleDel.bind(this);
     this.removeTodo = this.removeTodo.bind(this);
+    this.sortData = this.sortData.bind(this);
 	}
 
 	handleChange(e){
@@ -27,15 +28,15 @@ class AppComponent extends React.Component{
   		return;
   	}
   	let importance = document.getElementById("importance");
-  	const newItem = {
+  	let im = importance.options[importance.selectedIndex].value;
+    const newItem = {
   		text: this.state.text,
-  		id: Date.now()
+  		id: Date.now(),
+      importance: im// занести importance
   	};
-  	let im = this.state.importance.concat(importance.options[importance.selectedIndex].value);
   	this.setState({
   		items: this.state.items.concat(newItem),
-  		text: '',
-  		importance: im
+  		text: ''
   	});
   }
 
@@ -46,29 +47,37 @@ class AppComponent extends React.Component{
      	if (el == name) k = i; 
       	else it.push(el);
       });
-    this.state.importance.splice(k, 1)
     this.setState({
     	items: it,
     	text: ''
-    })
+    });
   }
 
   handleDel(e){
     this.state.items.pop();
-    this.state.importance.pop();
   	this.setState({
-  		items: this.state.items,
-  		importance: this.state.importance
+  		items: this.state.items
   	})
+  }
+
+  sortData(number){
+    console.log('number= ' + number);
+    for(var i=0; i < this.toWrite.items.length; i++){
+      console.log('this.toWrite.items.importance in sortData' + this.this.toWrite.items.importance);
+      if(this.toWrite.items.importance == number){
+        data.splice(i, 1);
+        data.text = '';
+      }
+    }
   }
 
 	render(){
 		return (
 			<div>
+        <DegreeOfImportance sortData={this.sortData} items={this.state.items}/>
 				<TasksComponent 
-					items = {this.state.items}
-					text = {this.state.text}
-					importance = {this.state.importance}
+					items = {this.toWrite.items}
+					text = {this.toWrite.text}
 					onDataChange = {this.handleChange}
 					onSubmit = {this.handleSubmit}
 					onRemove = {this.removeTodo}
