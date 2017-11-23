@@ -1,4 +1,5 @@
 import React from 'react';
+//добавить расширение jsx
 import TasksComponent from './TasksComponent';
 import './AppComponent.css';
 import DegreeOfImportance from './DegreeOfImportanceComponent';
@@ -22,7 +23,7 @@ class AppComponent extends React.Component{
   			text: e.target.value });
   }
 
-  handleSubmit(e){
+  handleSubmit(e){//text и importance передавать
   	e.preventDefault();
   	if(!this.state.text.length){
   		return;
@@ -74,10 +75,10 @@ class AppComponent extends React.Component{
 	render(){
 		return (
 			<div>
-        <DegreeOfImportance sortData={this.sortData} items={this.state.items}/>
+        <DegreeOfImportance />
 				<TasksComponent 
-					items = {this.toWrite.items}
-					text = {this.toWrite.text}
+					items = {this.state.items}
+					text = {this.state.text}
 					onDataChange = {this.handleChange}
 					onSubmit = {this.handleSubmit}
 					onRemove = {this.removeTodo}

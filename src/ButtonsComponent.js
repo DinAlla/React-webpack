@@ -3,7 +3,7 @@ import React from 'react';
 class ButtonsComponent extends React.Component {
 	render(){
 		return(
-		<div>
+		<div>//убрать \/ не нужен
 		  <input onChange={this.props.onDataChange} value={this.props.value}/>
           <div id='btns'>
 	          <button onClick={this.props.submit} id="add">

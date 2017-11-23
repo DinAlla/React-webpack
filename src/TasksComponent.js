@@ -10,15 +10,11 @@ class TasksComponent extends React.Component {
 
   render() {
     console.log("this.props.items in TasksComponent " + this.props.items);
-   	this.state={
-      items: this.props.items,
-      text: this.props.text
-    }
     return(
       <div id="Tasks">
   		  <TodoList 
-          items={this.state.items} 
-          removeTodo={this.state.onRemove}/>
+          items={this.props.items} 
+          removeTodo={this.props.onRemove}/>
         <ButtonsComponent 
           onDataChange={this.props.onDataChange} 
           value={this.props.text} 
