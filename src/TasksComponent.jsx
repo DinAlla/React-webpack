@@ -1,7 +1,7 @@
 import React from 'react';
-import TodoList from './TodoListComponent';
+import TodoList from './TodoListComponent.jsx';
 import './TasksComponent.css';
-import ButtonsComponent from './ButtonsComponent';
+import ButtonsComponent from './ButtonsComponent.jsx';
 
 class TasksComponent extends React.Component {
   constructor(props){
@@ -16,7 +16,6 @@ class TasksComponent extends React.Component {
           items={this.props.items} 
           removeTodo={this.props.onRemove}/>
         <ButtonsComponent 
-          onDataChange={this.props.onDataChange} 
           value={this.props.text} 
           submit={this.props.onSubmit} 
           delete={this.props.onDel}

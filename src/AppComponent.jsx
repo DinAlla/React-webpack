@@ -1,8 +1,7 @@
 import React from 'react';
-//добавить расширение jsx
-import TasksComponent from './TasksComponent';
+import TasksComponent from './TasksComponent.jsx';
 import './AppComponent.css';
-import DegreeOfImportance from './DegreeOfImportanceComponent';
+import DegreeOfImportance from './DegreeOfImportanceComponent.jsx';
 
 class AppComponent extends React.Component{
 	constructor(props){
@@ -11,29 +10,22 @@ class AppComponent extends React.Component{
       	items: [],
       	text: ''
     };
-    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDel = this.handleDel.bind(this);
     this.removeTodo = this.removeTodo.bind(this);
     this.sortData = this.sortData.bind(this);
 	}
 
-	handleChange(e){
-  		this.setState({
-  			text: e.target.value });
-  }
-
-  handleSubmit(e){//text и importance передавать
-  	e.preventDefault();
+  handleSubmit(text, importance){//text и importance передавать
   	if(!this.state.text.length){
   		return;
   	}
-  	let importance = document.getElementById("importance");
-  	let im = importance.options[importance.selectedIndex].value;
+  	//let importance = document.getElementById("importance");
+  	//let im = importance.options[importance.selectedIndex].value;
     const newItem = {
-  		text: this.state.text,
+  		text: text,
   		id: Date.now(),
-      importance: im// занести importance
+      importance: importance
   	};
   	this.setState({
   		items: this.state.items.concat(newItem),
@@ -42,14 +34,14 @@ class AppComponent extends React.Component{
   }
 
   removeTodo(name){
-  	let k;
-  	let it = [];
+  	let schetchick;
+  	let massivForImp = [];
   	this.state.items.forEach((el, i) => {
-     	if (el == name) k = i; 
-      	else it.push(el);
+     	if (el == name) schetchick = i; 
+      	else massivForImp.push(el);
       });
     this.setState({
-    	items: it,
+    	items: massivForImp,
     	text: ''
     });
   }
@@ -79,7 +71,6 @@ class AppComponent extends React.Component{
 				<TasksComponent 
 					items = {this.state.items}
 					text = {this.state.text}
-					onDataChange = {this.handleChange}
 					onSubmit = {this.handleSubmit}
 					onRemove = {this.removeTodo}
 					onDel = {this.handleDel}/>

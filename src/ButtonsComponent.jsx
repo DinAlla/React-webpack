@@ -4,9 +4,10 @@ class ButtonsComponent extends React.Component {
 	render(){
 		return(
 		<div>//убрать \/ не нужен
-		  <input onChange={this.props.onDataChange} value={this.props.value}/>
+		  <input type="text" />
           <div id='btns'>
-	          <button onClick={this.props.submit} id="add">
+	          <button onClick={this.props.submit(/*тут надо как-то передать значение из инпута
+	          	и номер импотенса*/'lala', 1)} id="add">
 	            Add #{this.props.items.length + 1}
 	          </button>
 	          <button onClick={this.props.delete} id="del">
