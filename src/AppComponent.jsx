@@ -7,8 +7,7 @@ class AppComponent extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {
-      	items: [],
-      	text: ''
+      	items: []
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDel = this.handleDel.bind(this);
@@ -17,19 +16,18 @@ class AppComponent extends React.Component{
 	}
 
   handleSubmit(text, importance){//text и importance передавать
-  	if(!this.state.text.length){
-  		return;
-  	}
   	//let importance = document.getElementById("importance");
   	//let im = importance.options[importance.selectedIndex].value;
+      if (!text) {
+          return;
+      }
     const newItem = {
   		text: text,
   		id: Date.now(),
-      importance: importance
+        importance: importance
   	};
   	this.setState({
-  		items: this.state.items.concat(newItem),
-  		text: ''
+  		items: this.state.items.concat(newItem)
   	});
   }
 
@@ -67,10 +65,9 @@ class AppComponent extends React.Component{
 	render(){
 		return (
 			<div>
-        <DegreeOfImportance />
+            <DegreeOfImportance />
 				<TasksComponent 
 					items = {this.state.items}
-					text = {this.state.text}
 					onSubmit = {this.handleSubmit}
 					onRemove = {this.removeTodo}
 					onDel = {this.handleDel}/>

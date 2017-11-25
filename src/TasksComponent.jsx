@@ -16,7 +16,6 @@ class TasksComponent extends React.Component {
           items={this.props.items} 
           removeTodo={this.props.onRemove}/>
         <ButtonsComponent 
-          value={this.props.text} 
           submit={this.props.onSubmit} 
           delete={this.props.onDel}
           items={this.props.items}/>

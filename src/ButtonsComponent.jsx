@@ -1,13 +1,19 @@
 import React from 'react';
 
 class ButtonsComponent extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            text: '',
+            importance: 0
+        }
+    }
 	render(){
 		return(
-		<div>//убрать \/ не нужен
-		  <input type="text" />
-          <div id='btns'>
-	          <button onClick={this.props.submit(/*тут надо как-то передать значение из инпута
-	          	и номер импотенса*/'lala', 1)} id="add">
+            <div>//убрать \/ не нужен
+                <input type="text" onChange={() => { this.setState = { text: this.value } }} />
+                <div id='btns'>
+                    <button onClick={this.props.submit(/*придумала, но чет не работает*/this.state.text, this.state.importance)} id="add">
 	            Add #{this.props.items.length + 1}
 	          </button>
 	          <button onClick={this.props.delete} id="del">
