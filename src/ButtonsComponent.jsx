@@ -5,15 +5,23 @@ class ButtonsComponent extends React.Component {
         super(props);
         this.state = {
             text: '',
-            importance: 0
-        }
+            importance: 1
+        };
+        this.handleChange = this.handleChange.bind(this);
+    }
+    handleChange(e){
+    	console.log("handleChange");
+    	this.setState({
+    		text: e.target.value
+    	});
+    	console.log(e.target.value);
     }
 	render(){
 		return(
-            <div>//убрать \/ не нужен
-                <input type="text" onChange={() => { this.setState = { text: this.value } }} />
+            <div>
+                <input type="text" onChange={this.handleChange} value={this.state.text}/>
                 <div id='btns'>
-                    <button onClick={this.props.submit(/*придумала, но чет не работает*/this.state.text, this.state.importance)} id="add">
+                    <button onClick={this.props.submit(this.state.text, this.state.importance)} id="add">
 	            Add #{this.props.items.length + 1}
 	          </button>
 	          <button onClick={this.props.delete} id="del">
