@@ -54,18 +54,18 @@ class AppComponent extends React.Component{
     }
   }
 
-	render(){
-		return (
-			<div>
+  render(){
+    return (
+	  <div>
         <DegreeOfImportance />
-				<TasksComponent 
-					items = {this.state.items}
-					onSubmit = {this.handleSubmit}
-					onRemove = {this.removeTodo}
-					onDel = {this.handleDel}/>
-			</div>
-		);
-	}
+		<TasksComponent 
+		  items = {this.state.items}
+		  onSubmit = {this.handleSubmit}
+		  onRemove = {this.removeTodo}
+		  onDel = {this.handleDel}/>
+	  </div>
+	);
+  }
 }
 
 export default AppComponent
