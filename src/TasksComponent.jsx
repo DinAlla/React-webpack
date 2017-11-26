@@ -9,7 +9,6 @@ class TasksComponent extends React.Component {
   }
 
   render() {
-    console.log("this.props.items in TasksComponent " + this.props.items);
     return(
       <div id="Tasks">
   		  <TodoList 

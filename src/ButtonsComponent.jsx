@@ -1,41 +1,52 @@
 import React from 'react';
+import ImportanceComponent from './ImportanceComponent.jsx'
 
 class ButtonsComponent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            text: '',
-            importance: 1
+            text: ' ',
+            importance: ' '
         };
-        this.handleChange = this.handleChange.bind(this);
+        this.handleChangeInput = this.handleChangeInput.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChangeImportance = this.handleChangeImportance.bind(this);
     }
-    handleChange(e){
-    	console.log("handleChange");
+
+    handleChangeInput(e){
     	this.setState({
     		text: e.target.value
     	});
-    	console.log(e.target.value);
+    }
+    handleChangeImportance(value){
+    	this.setState({
+    		importance: value
+    	});
+    }
+    handleSubmit(text, importance){
+    	if(!this.state.text.length){
+    		return;
+    	}
+    	this.props.submit(text, importance);
+    	this.setState({
+    		importance: '',
+    		text: ''
+    	});
     }
 	render(){
 		return(
             <div>
-                <input type="text" onChange={this.handleChange} value={this.state.text}/>
+                <input onChange={this.handleChangeInput} value={this.state.text}/>
                 <div id='btns'>
-                    <button onClick={this.props.submit(this.state.text, this.state.importance)} id="add">
-	            Add #{this.props.items.length + 1}
-	          </button>
-	          <button onClick={this.props.delete} id="del">
-	          	Deleted
-	          </button>
-            //вынести в компонент, в него value и callback
-            <select size = "1" id = "importance" required>
-              <option value="0">Степень важности 1</option>
-              <option value="1">Степень важности 2</option>
-              <option value="2">Степень важности 3</option>
-              <option value="3">Степень важности 4</option>
-            </select>
-          </div>
-        </div>
+                    <button onClick={()=>{this.handleSubmit(this.state.text, this.state.importance)}} id="add">
+	            	Add #{this.props.items.length + 1}
+	          		</button>
+	          		<button onClick={this.props.delete} id="del">
+	          		Deleted
+	          		</button>
+            		<ImportanceComponent onChangeData={this.handleChangeImportance}/>
+          		</div>
+        	</div>
 		)
 	}	
 }

@@ -15,17 +15,13 @@ class AppComponent extends React.Component{
     this.sortData = this.sortData.bind(this);
 	}
 
-  handleSubmit(text, importance){//text и importance передавать
-  	//let importance = document.getElementById("importance");
-  	//let im = importance.options[importance.selectedIndex].value;
-      if (!text) {
-          return;
-      }
+  handleSubmit(text, importance){
     const newItem = {
   		text: text,
   		id: Date.now(),
-        importance: importance
+      importance: importance
   	};
+    console.log
   	this.setState({
   		items: this.state.items.concat(newItem)
   	});
@@ -39,8 +35,7 @@ class AppComponent extends React.Component{
       	else massivForImp.push(el);
       });
     this.setState({
-    	items: massivForImp,
-    	text: ''
+    	items: massivForImp
     });
   }
 
@@ -52,9 +47,7 @@ class AppComponent extends React.Component{
   }
 
   sortData(number){
-    console.log('number= ' + number);
     for(var i=0; i < this.toWrite.items.length; i++){
-      console.log('this.toWrite.items.importance in sortData' + this.this.toWrite.items.importance);
       if(this.toWrite.items.importance == number){
         data.splice(i, 1);
         data.text = '';
@@ -65,7 +58,7 @@ class AppComponent extends React.Component{
 	render(){
 		return (
 			<div>
-            <DegreeOfImportance />
+        <DegreeOfImportance />
 				<TasksComponent 
 					items = {this.state.items}
 					onSubmit = {this.handleSubmit}
