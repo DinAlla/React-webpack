@@ -22,4 +22,5 @@ class TasksComponent extends React.Component {
   	);
   }
 }
+
 export default TasksComponent;

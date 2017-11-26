@@ -7,7 +7,7 @@ class AppComponent extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {
-      	items: []
+      items: []
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDel = this.handleDel.bind(this);
@@ -21,7 +21,6 @@ class AppComponent extends React.Component{
   		id: Date.now(),
       importance: importance
   	};
-    console.log
   	this.setState({
   		items: this.state.items.concat(newItem)
   	});
