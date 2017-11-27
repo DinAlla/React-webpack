@@ -9,7 +9,29 @@ class AppComponent extends React.Component{
 	super(props);
 	  this.state = {
         items: [],
-        toWrite: []
+        toWrite: [],
+        importance: [
+          {
+            value:'0',
+            message: 'Степень важности 1'
+          },
+          {
+            value:'1',
+            message: 'Степень важности 2'
+          },
+          {
+            value:'2',
+            message: 'Степень важности 3'
+          },
+          {
+            value:'3',
+            message: 'Степень важности 4'
+          },
+          {
+            value:'4',
+            message: 'Показать все'
+          }
+        ]
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDel = this.handleDel.bind(this);
@@ -23,9 +45,10 @@ class AppComponent extends React.Component{
   	  id: Date.now(),
       importance: importance
   	};
+    let data = this.state.items.concat(newItem);
   	this.setState({
-      items: this.state.items.concat(newItem),
-      toWrite: this.state.items.concat(newItem)
+      items: data,
+      toWrite: data
   	});
   }
 
@@ -41,18 +64,15 @@ class AppComponent extends React.Component{
 
   handleDel(e){
     this.state.items.pop();
+    let data = this.state.items;    
   	this.setState({
-      items: this.state.items,
-      toWrite: this.state.items
+      items: data,
+      toWrite: data
   	})
   }
 
   sortData(number) {
-    this.setState({
-      toWrite: this.state.items
-    });
-    let result;
-    (number != 4) ? result = this.state.items.filter((el) => el.importance == number) : result = this.state.items;
+    let result = (number != 4) ?  this.state.items.filter((el) => el.importance == number) : this.state.items;
     this.setState({
       toWrite: result
     });
@@ -61,13 +81,14 @@ class AppComponent extends React.Component{
   render(){
     return (
 	  <div>
-        <HeaderComponent />
-        <DegreeOfImportance sortData={this.sortData} />
-        <TasksComponent
-          items={this.state.toWrite}
-		  onSubmit = {this.handleSubmit}
-		  onRemove = {this.removeTodo}
-		  onDel = {this.handleDel}/>
+      <HeaderComponent />
+      <DegreeOfImportance sortData={this.sortData} data={this.state.importance} />
+      <TasksComponent
+        data={this.state.importance.slice(0,4)}
+        items={this.state.toWrite}
+		    onSubmit = {this.handleSubmit}
+		    onRemove = {this.removeTodo}
+		    onDel = {this.handleDel}/>
 	  </div>
 	);
   }

@@ -8,6 +8,7 @@ class DegreeOfImportanceComponent extends React.Component{
     }
 
   sortData(e) {
+    console.log("key in Degree " + e.target.value);
     this.props.sortData(e.target.value);
   }
 
@@ -15,12 +16,11 @@ class DegreeOfImportanceComponent extends React.Component{
     return(
       <div id='DegreeOfImportance'>
         <h3>Фильтры</h3>
-        <ul onClick={this.sortData}>
-          <li value='0'>Степень важности 1</li>
-          <li value='1'>Степень важности 2</li>
-          <li value='2'>Степень важности 3</li>
-          <li value='3'>Степень важности 4</li>
-          <li value='4'>Показать все</li>
+        <ul onClick={this.sortData}> 
+          {this.props.data.map((item, i)=>(
+            <li key={item.value} value={item.value}>{item.message}</li>
+          ))
+          }
         </ul>
       </div>
     )

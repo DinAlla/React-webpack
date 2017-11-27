@@ -5,11 +5,6 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 module.exports = {
 	devtool: 'eval-source-map',
 
-	//htmlplagin - указать на основе какого файла делать штуки
-	//удалить папку Public из гитхаба
-
-	//todo app, без севера. чистый реакт
-	//chekpoint
   	entry:  __dirname + "/src/index.js",
   	output: {
     	path: __dirname + "/public",
@@ -37,12 +32,14 @@ module.exports = {
       		}
   		]
 	},
+
 	plugins: [
 		new HtmlWebpackPlugin({
-			template: './src/index.html'
+		  template: './src/index.html'
 		}),
 		new ExtractTextPlugin('[name].css')
 	],
+	
 	watch: true
 };
 

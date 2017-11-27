@@ -17,7 +17,8 @@ class TasksComponent extends React.Component {
         <ButtonsComponent 
           submit={this.props.onSubmit} 
           delete={this.props.onDel}
-          items={this.props.items}/>
+          items={this.props.items}
+          data={this.props.data}/>
       </div>
   	);
   }

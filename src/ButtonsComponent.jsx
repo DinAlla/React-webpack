@@ -47,7 +47,7 @@ class ButtonsComponent extends React.Component {
 	      <button onClick={this.props.delete} id="del">
 	        Deleted
 	      </button>
-          <ImportanceComponent onChangeData={this.handleChangeImportance}/>
+          <ImportanceComponent onChangeData={this.handleChangeImportance} data={this.props.data}/>
          </div>
       </div>
 	)
