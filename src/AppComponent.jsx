@@ -10,8 +10,8 @@ class AppComponent extends React.Component{
 	  this.state = {
         items: [],
         toWrite: [],
-        importance: [
-          {
+        importance: 
+          [{
             value:'0',
             message: 'Степень важности 1'
           },
@@ -30,8 +30,7 @@ class AppComponent extends React.Component{
           {
             value:'4',
             message: 'Показать все'
-          }
-        ]
+          }]
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDel = this.handleDel.bind(this);
