@@ -87,7 +87,7 @@ class AppComponent extends React.Component{
         items={this.state.toWrite}
 		    onSubmit = {this.handleSubmit}
 		    onRemove = {this.removeTodo}
-		    onDel = {this.handleDel}/>
+		    /*onDel = {this.handleDel}*/ />
 	  </div>
 	);
   }
