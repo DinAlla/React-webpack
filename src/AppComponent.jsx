@@ -5,7 +5,7 @@ import DegreeOfImportance from './DegreeOfImportanceComponent.jsx';
 import HeaderComponent from './HeaderComponent.jsx'
 
 class AppComponent extends React.Component{
-  constructor(props){
+  /*constructor(props){
 	super(props);
 	  this.state = {
         items: [],
@@ -75,19 +75,19 @@ class AppComponent extends React.Component{
     this.setState({
       toWrite: result
     });
-  }
+  }*/
 
   render(){
     return (
 	  <div>
       <HeaderComponent />
-      <DegreeOfImportance sortData={this.sortData} data={this.state.importance} />
+      <DegreeOfImportance /*sortData={this.sortData} data={this.state.importance}*/ />
       <TasksComponent
-        data={this.state.importance.slice(0,4)}
+        /*data={this.state.importance.slice(0,4)}
         items={this.state.toWrite}
 		    onSubmit = {this.handleSubmit}
 		    onRemove = {this.removeTodo}
-		    /*onDel = {this.handleDel}*/ />
+		    onDel = {this.handleDel}*/ />
 	  </div>
 	);
   }

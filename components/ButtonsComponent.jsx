@@ -1,5 +1,5 @@
 import React from 'react';
-import ImportanceComponent from './ImportanceComponent.jsx'
+import { addTodo } from './actions'
 
 class ButtonsComponent extends React.Component {
   constructor(props) {
@@ -29,7 +29,9 @@ class ButtonsComponent extends React.Component {
     if(!this.state.text.length){
       return;
     }
-    this.props.submit(text, importance);
+    
+    dispatch(addTodo(text, importance));
+
     this.setState({
       importance: '',
       text: ''
@@ -42,16 +44,14 @@ class ButtonsComponent extends React.Component {
         <input onChange={this.handleChangeInput} value={this.state.text}/>
         <div id='btns'>
           <button onClick={()=>{this.handleSubmit(this.state.text, this.state.importance)}} id="add">
-	        Add #{this.props.items.length + 1}
-	      </button>
-	      <button onClick={this.props.delete} id="del">
-	        Deleted
-	      </button>
-          <ImportanceComponent onChangeData={this.handleChangeImportance} data={this.props.data}/>
-         </div>
+	        Add 
+	        </button>
+        </div>
       </div>
 	)
   }	
 }
+
+//HOW I CAN CONNECT THIS??
 
 export default ButtonsComponent
