@@ -1,6 +1,6 @@
 import React from 'react';
 import TasksComponent from './TasksComponent.jsx';
-import './AppComponent.css';
+import './App.css';
 import DegreeOfImportance from './DegreeOfImportanceComponent.jsx';
 import HeaderComponent from './HeaderComponent.jsx'
 

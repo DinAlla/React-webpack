@@ -13,3 +13,10 @@ export const delTodo = (name) => {
     name
   }
 }
+
+export const sortTodo = (number) => {
+  return {
+    type: 'SORT_DATA',
+    number
+  }
+}

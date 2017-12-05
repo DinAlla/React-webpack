@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 import { delTodo } from '../actions';
-import TodoList from '../components/TodoList';
+import TodoList from '../components/TodoListComponent';
 
 const mapStateToProps = (state) => {
     return {
-        items: state.items
+        items: state.toWrite
     }
 }
 
@@ -16,9 +16,9 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-const WatchTodo  = connect(
+const TodoListContainer  = connect(
     mapStateToProps,
     mapDispatchToProps
 )(TodoList)
 
-export default WatchTodo;
+export default TodoListContainer;

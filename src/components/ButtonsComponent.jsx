@@ -1,5 +1,5 @@
 import React from 'react';
-import { addTodo } from './actions'
+import { addTodo } from '../actions'
 
 class ButtonsComponent extends React.Component {
   constructor(props) {
@@ -30,7 +30,7 @@ class ButtonsComponent extends React.Component {
       return;
     }
     
-    dispatch(addTodo(text, importance));
+    this.props.onClick(text, importance);
 
     this.setState({
       importance: '',
@@ -51,7 +51,5 @@ class ButtonsComponent extends React.Component {
 	)
   }	
 }
-
-//HOW I CAN CONNECT THIS??
 
 export default ButtonsComponent

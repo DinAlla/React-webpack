@@ -36,45 +36,6 @@ class AppComponent extends React.Component{
     this.handleDel = this.handleDel.bind(this);
     this.removeTodo = this.removeTodo.bind(this);
     this.sortData = this.sortData.bind(this);
-  }
-
-  handleSubmit(text, importance){
-    const newItem = {
-  	  text: text,
-  	  id: Date.now(),
-      importance: importance
-  	};
-    let data = this.state.items.concat(newItem);
-  	this.setState({
-      items: data,
-      toWrite: data
-  	});
-  }
-
-  removeTodo(name){
-  	let schetchick;
-  	let massivForImp = [];
-  	let result = this.state.items.filter((el) => el != name);
-    this.setState({
-      items: result,
-      toWrite: result
-    });
-  }
-
-  handleDel(e){
-    this.state.items.pop();
-    let data = this.state.items;    
-  	this.setState({
-      items: data,
-      toWrite: data
-  	})
-  }
-
-  sortData(number) {
-    let result = (number != 4) ?  this.state.items.filter((el) => el.importance == number) : this.state.items;
-    this.setState({
-      toWrite: result
-    });
   }*/
 
   render(){
@@ -87,7 +48,7 @@ class AppComponent extends React.Component{
         items={this.state.toWrite}
 		    onSubmit = {this.handleSubmit}
 		    onRemove = {this.removeTodo}
-		    onDel = {this.handleDel}*/ />
+		    onDel = {this.handleDel}*//>
 	  </div>
 	);
   }

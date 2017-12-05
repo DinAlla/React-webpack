@@ -1,9 +1,6 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-var devFlagPlugin = new HtmlWebpackPlugin.DefinePlugin({
-	_DEV_: JSON.stringify(JSON.parse(process.env.DEBUG || 'false'))
-});
 
 module.exports = {
 	devtool: 'eval-source-map',
@@ -40,8 +37,7 @@ module.exports = {
 		new HtmlWebpackPlugin({
 		  template: './src/index.html'
 		}),
-		new ExtractTextPlugin('[name].css'),
-		devFlagPlugin
+		new ExtractTextPlugin('[name].css')
 	],
 	
 	watch: true
