@@ -23,7 +23,7 @@ let initialState = {
       message: 'Показать все'
     }]
 };
-
+//current importance, для него сделать экшн 
 const todo = (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_TODO':

@@ -1,7 +1,7 @@
 import React from 'react';
-import TodoListComponent from './TodoListComponent.jsx';
+import TodoListComponent from '../containers/TodoListContainer.js';
 import './TasksComponent.css';
-import ButtonsComponent from './ButtonsComponent.jsx';
+import ButtonsComponent from '../containers/ButtonsContainer.js';
 
 class TasksComponent extends React.Component {
 

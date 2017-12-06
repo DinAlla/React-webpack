@@ -1,7 +1,7 @@
 import React from 'react';
 import TasksComponent from './TasksComponent.jsx';
-import './App.css';
-import DegreeOfImportance from './DegreeOfImportanceComponent.jsx';
+import './AppComponent.css';
+import DegreeOfImportance from '../containers/DegreeOfImportanceContainer.js';
 import HeaderComponent from './HeaderComponent.jsx'
 
 const App = () => (

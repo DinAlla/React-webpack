@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import ButtonsComponent from '../components/ButtonsComponent';
-import { sortTodo } from '../actions/actions';
+import DegreeOfImportanceComponent from '../components/DegreeOfImportanceComponent.jsx';
+import { sortTodo } from '../actions';
 
 const mapDispatchToProps = (state) => {
   return {
@@ -15,10 +15,10 @@ const mapStateToProps = (dispatch) => {
     }
   }
 }
-
-const ButtonsContainer  = connect(
+//toWrite убрать
+const DegreeOfImportanceContainer  = connect(
   mapStateToProps,
   mapDispatchToProps
-)(ButtonsComponent)
+)(DegreeOfImportanceComponent)
 
-export default ButtonsContainer;
+export default DegreeOfImportanceContainer;
