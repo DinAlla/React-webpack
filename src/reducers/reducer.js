@@ -1,6 +1,6 @@
 let initialState = {
   items: [],
-  toWrite: [],
+  currentImportance: '',
   importance: 
     [{
       value:'0',
@@ -43,7 +43,7 @@ const todo = (state = initialState, action) => {
       })
     case 'SORT_DATA':
       return Object.assign({}, state, {
-        toWrite: (number != 4) ?  this.state.items.filter((el) => el.importance == number) : this.state.items
+        items: (number != 4) ?  this.state.items.filter((el) => el.importance == number) : this.state.items
       })
     default:
       return state

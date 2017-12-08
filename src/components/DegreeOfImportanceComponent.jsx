@@ -1,4 +1,4 @@
-import React from 'react';
+import React,  { PropTypes } from 'react';
 import './DegreeOfImportanceComponent.css';
 
 class DegreeOfImportanceComponent extends React.Component{

@@ -1,5 +1,5 @@
 import React from 'react';
-import { addTodo } from '../actions'
+import { addTodo } from '../actions';
 
 class ButtonsComponent extends React.Component {
   constructor(props) {
@@ -46,9 +46,14 @@ class ButtonsComponent extends React.Component {
           <button onClick={()=>{this.handleSubmit(this.state.text, this.state.importance)}} id="add">
 	        Add 
 	        </button>
+          <select size = "1" id = "importance" onChange={this.handleChangeImportance}>
+	          {this.props.data.map((item, i)=>(
+              <option key={item.value} value={item.value}>{item.message}</option>
+	          ))}
+          </select>
         </div>
       </div>
-	)
+	  )
   }	
 }
 

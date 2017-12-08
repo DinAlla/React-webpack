@@ -10,7 +10,14 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    data: state.importance
+  }
+}
+
 const ButtonsContainer  = connect(
+  mapStateToProps,
   mapDispatchToProps
 )(ButtonsComponent)
 

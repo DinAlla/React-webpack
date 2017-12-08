@@ -15,7 +15,7 @@ const mapStateToProps = (dispatch) => {
     }
   }
 }
-//toWrite убрать
+
 const DegreeOfImportanceContainer  = connect(
   mapStateToProps,
   mapDispatchToProps
