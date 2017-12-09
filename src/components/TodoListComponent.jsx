@@ -3,7 +3,7 @@ import TodoComponent from './TodoComponent.jsx';
 
 const TodoListComponent = ({todos, onTodoClick})=>(
   <ul>
-    {todos.map( todo =>
+    { todos.map( todo =>
       <TodoComponent 
         key={todo.id}
         {...todos}

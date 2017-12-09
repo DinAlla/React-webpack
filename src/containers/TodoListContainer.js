@@ -4,7 +4,7 @@ import TodoListComponent from '../components/TodoListComponent.jsx';
 
 const mapStateToProps = (state) => {
     return {
-        items: state.toWrite
+        todos: state.items
     }
 }
 

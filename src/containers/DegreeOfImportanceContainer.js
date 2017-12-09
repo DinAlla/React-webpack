@@ -2,13 +2,14 @@ import { connect } from 'react-redux';
 import DegreeOfImportanceComponent from '../components/DegreeOfImportanceComponent.jsx';
 import { sortTodo } from '../actions';
 
-const mapDispatchToProps = (state) => {
+const mapStateToProps = (state) => {
+  console.log(state.items + ' in container');
   return {
-    data: state.importance
+    data: state.items
   }
 }
 
-const mapStateToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
   return {
     sortData: (number)=>{
       dispatch(sortTodo(number))            
