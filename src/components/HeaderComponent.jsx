@@ -4,7 +4,7 @@ import './HeaderComponent.css';
 class HeaderComponent extends React.Component {
   render() {
     return (
-        <header></header>
+      <header></header>
     );
   }
 }

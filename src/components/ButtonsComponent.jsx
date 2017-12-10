@@ -23,16 +23,13 @@ class ButtonsComponent extends React.Component {
     this.setState({
    	  importance: e.target.value
     });
-    console.log(this.state.importance + ' change importance');
   }
 
   handleSubmit(text, importance, Click){
     if(!this.state.text.length){
       return;
     }
-    console.log(this.state.text + ' ' + this.state.importance + ' onclick');
     Click(text, importance);
-
     this.setState({
       importance: '',
       text: ''

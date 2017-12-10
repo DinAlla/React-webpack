@@ -6,7 +6,6 @@ class TodoListComponent extends React.Component {
   }
  
   removeItem(item, onTodoClick) {
-    console.log(item + ' ITEM in component');
     onTodoClick(item)
   }
 

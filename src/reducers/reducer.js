@@ -1,6 +1,6 @@
 let initialState = {
   items: [],
-  currentImportance: '',
+  currentImportance: 4,
   importance: 
     [{
       value:'0',
@@ -23,7 +23,7 @@ let initialState = {
       message: 'Показать все'
     }]
 };
-//current importance, для него сделать экшн 
+
 console.log('state in redicer ' + initialState);
 const todo = (state = initialState, action) => {
   switch (action.type) {
@@ -36,22 +36,22 @@ const todo = (state = initialState, action) => {
           text: action.text,
           importance: action.importance
         }],
-        currentImportance: state.importance,
+        currentImportance: 4,
         importance: state.importance
       }
     case 'DELETE_TODO': 
-      console.log(state.items + ' in reducer, deltodo');
-      console.log(action.id + ' id ZAZAAZ in reducer, deltodo');
       return  {
         items: state.items.filter((el)=> el.id != action.id),
-        currentImportance: state.importance,
+        currentImportance: 4,
         importance: state.importance  
       }
 
       
     case 'SORT_DATA':
       return {
-        currentImportance: action.number
+        items: state.items,
+        currentImportance: action.number,
+        importance: state.importance
       }
     default:
       return state
