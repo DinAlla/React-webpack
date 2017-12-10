@@ -19,18 +19,19 @@ class ButtonsComponent extends React.Component {
    	});
   }
 
-  handleChangeImportance(value){
+  handleChangeImportance(e){
     this.setState({
-   	  importance: value
+   	  importance: e.target.value
     });
+    console.log(this.state.importance + ' change importance');
   }
 
-  handleSubmit(text, importance){
+  handleSubmit(text, importance, Click){
     if(!this.state.text.length){
       return;
     }
-    
-    this.props.onClick(text, importance);
+    console.log(this.state.text + ' ' + this.state.importance + ' onclick');
+    Click(text, importance);
 
     this.setState({
       importance: '',
@@ -39,15 +40,16 @@ class ButtonsComponent extends React.Component {
   }
   
   render(){
+    const {Click, data} = this.props;
     return(
       <div>
         <input onChange={this.handleChangeInput} value={this.state.text}/>
         <div id='btns'>
-          <button onClick={()=>{this.handleSubmit(this.state.text, this.state.importance)}} id="add">
+          <button onClick={()=>{this.handleSubmit(this.state.text, this.state.importance, Click)}} id="add">
 	        Add 
 	        </button>
           <select size = "1" id = "importance" onChange={this.handleChangeImportance}>
-	          {this.props.data.map((item, i)=>(
+	          {data.map((item, i)=>(
               <option key={item.value} value={item.value}>{item.message}</option>
 	          ))}
           </select>

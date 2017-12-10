@@ -4,7 +4,7 @@ import ButtonsComponent from '../components/ButtonsComponent.jsx';
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onClick: (text, importance)=>{
+    Click: (text, importance) => {
       dispatch(addTodo(text, importance))
     }
   }
@@ -12,7 +12,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
   return {
-    data: state.importance
+    data: state.importance.slice(0,4)
   }
 }
 

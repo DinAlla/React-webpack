@@ -6,6 +6,7 @@ class DegreeOfImportanceComponent extends React.Component{
   constructor(props){
     super(props);
     console.log(props.data + ' props in DegreeOfImportance');
+    console.log(props.sortData + ' props in DegreeOfImportance');
     this.sortData = this.sortData.bind(this);
     }
 

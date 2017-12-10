@@ -1,7 +1,7 @@
 export const addTodo = (text, importance) => {
   return {
     type: 'ADD_TODO',
-    text,
+    text:text,
     id:  Date.now(),
     importance    
   }

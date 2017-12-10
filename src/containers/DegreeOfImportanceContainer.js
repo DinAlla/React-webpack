@@ -3,9 +3,9 @@ import DegreeOfImportanceComponent from '../components/DegreeOfImportanceCompone
 import { sortTodo } from '../actions';
 
 const mapStateToProps = (state) => {
-  console.log(state.items + ' in container');
+  console.log(state + ' in container');
   return {
-    data: state.items
+    data: state.importance
   }
 }
 
