@@ -7,10 +7,11 @@ export const addTodo = (text, importance) => {
   }
 }
 
-export const delTodo = (name) => {
+export const delTodo = (id) => {
+  console.log(id + ' id IN ACTIONS');
   return {
     type: 'DELETE_TODO',
-    name
+    id
   }
 }
 

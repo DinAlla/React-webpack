@@ -26,7 +26,6 @@ let initialState = {
 //current importance, для него сделать экшн 
 console.log('state in redicer ' + initialState);
 const todo = (state = initialState, action) => {
-  console.log(state.items + ' in reduser');
   switch (action.type) {
     case 'ADD_TODO':
       return {
@@ -41,9 +40,15 @@ const todo = (state = initialState, action) => {
         importance: state.importance
       }
     case 'DELETE_TODO': 
-      return Object.assign({}, state, {
-        items: state.items.filter((el)=> el.id != action.name)  
-      })
+      console.log(state.items + ' in reducer, deltodo');
+      console.log(action.id + ' id ZAZAAZ in reducer, deltodo');
+      return  {
+        items: state.items.filter((el)=> el.id != action.id),
+        currentImportance: state.importance,
+        importance: state.importance  
+      }
+
+      
     case 'SORT_DATA':
       return {
         currentImportance: action.number
