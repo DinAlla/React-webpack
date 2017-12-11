@@ -48,11 +48,7 @@ const todo = (state = initialState, action) => {
 
       
     case 'SORT_DATA':
-      return {
-        items: state.items,
-        currentImportance: action.number,
-        importance: state.importance
-      }
+      return Object.assign({}, state, {currentImportance: action.number})
     default:
       return state
   }

@@ -1,6 +1,5 @@
 import React from 'react';
 import './DegreeOfImportanceComponent.css';
-import '../containers/DegreeOfImportanceContainer'
 
 class DegreeOfImportanceComponent extends React.Component{
   constructor(props){

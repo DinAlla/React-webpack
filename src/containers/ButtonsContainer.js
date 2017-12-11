@@ -1,14 +1,5 @@
 import { connect } from 'react-redux';
-import { addTodo } from '../actions';
 import ButtonsComponent from '../components/ButtonsComponent.jsx';
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    Click: (text, importance) => {
-      dispatch(addTodo(text, importance))
-    }
-  }
-}
 
 const mapStateToProps = (state) => {
   return {
@@ -17,8 +8,7 @@ const mapStateToProps = (state) => {
 }
 
 const ButtonsContainer  = connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(ButtonsComponent)
 
 export default ButtonsContainer;

@@ -1,5 +1,6 @@
 import React from 'react';
-import { addTodo } from '../actions';
+import { bindActionCreators } from 'redux';
+import * as actions from '../actions';
 
 class ButtonsComponent extends React.Component {
   constructor(props) {
@@ -8,6 +9,8 @@ class ButtonsComponent extends React.Component {
       text: ' ',
       importance: ' '
     };
+    const {dispatch} = props;
+    this.boundActionCreators = bindActionCreators(actions, dispatch);    
     this.handleChangeInput = this.handleChangeInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChangeImportance = this.handleChangeImportance.bind(this);
@@ -25,11 +28,13 @@ class ButtonsComponent extends React.Component {
     });
   }
 
-  handleSubmit(text, importance, Click){
+  handleSubmit(text, importance){
     if(!this.state.text.length){
       return;
     }
-    Click(text, importance);
+    let { dispatch } = this.props;
+    let action = actions.addTodo(text, importance);
+    dispatch(action);
     this.setState({
       importance: '',
       text: ''
@@ -37,12 +42,12 @@ class ButtonsComponent extends React.Component {
   }
   
   render(){
-    const {Click, data} = this.props;
+    const { data} = this.props;
     return(
       <div>
         <input onChange={this.handleChangeInput} value={this.state.text}/>
         <div id='btns'>
-          <button onClick={()=>{this.handleSubmit(this.state.text, this.state.importance, Click)}} id="add">
+          <button onClick={()=>{this.handleSubmit(this.state.text, this.state.importance)}} id="add">
 	        Add 
 	        </button>
           <select size = "1" id = "importance" onChange={this.handleChangeImportance}>
