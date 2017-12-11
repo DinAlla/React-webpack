@@ -1,6 +1,4 @@
 import React from 'react';
-import { bindActionCreators } from 'redux';
-import * as actions from '../actions';
 
 class ButtonsComponent extends React.Component {
   constructor(props) {
@@ -9,8 +7,6 @@ class ButtonsComponent extends React.Component {
       text: ' ',
       importance: ' '
     };
-    const {dispatch} = props;
-    this.boundActionCreators = bindActionCreators(actions, dispatch);    
     this.handleChangeInput = this.handleChangeInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChangeImportance = this.handleChangeImportance.bind(this);
@@ -27,14 +23,12 @@ class ButtonsComponent extends React.Component {
    	  importance: e.target.value
     });
   }
-
+  
   handleSubmit(text, importance){
     if(!this.state.text.length){
       return;
     }
-    let { dispatch } = this.props;
-    let action = actions.addTodo(text, importance);
-    dispatch(action);
+    this.props.Click(text, importance);
     this.setState({
       importance: '',
       text: ''
