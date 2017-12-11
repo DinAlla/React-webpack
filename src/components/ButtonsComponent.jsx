@@ -36,7 +36,7 @@ class ButtonsComponent extends React.Component {
   }
   
   render(){
-    const { data} = this.props;
+    const {data, Click} = this.props;
     return(
       <div>
         <input onChange={this.handleChangeInput} value={this.state.text}/>

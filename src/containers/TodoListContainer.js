@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
-import { delTodo } from '../actions';
+import { bindActionCreators } from 'redux';
+import * as actions from '../actions';
 import TodoListComponent from '../components/TodoListComponent.jsx';
 import { getCurrentItems } from '../selectors/index.js';
 
@@ -10,11 +11,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return {
-    onTodoClick: (id)=>{
-      dispatch(delTodo(id))
-    }
-  }
+  return bindActionCreators({onTodoClick: actions.delTodo}, dispatch)
 }
 
 const TodoListContainer  = connect(

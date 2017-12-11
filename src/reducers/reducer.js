@@ -24,11 +24,11 @@ let initialState = {
     }]
 };
 
-console.log('state in redicer ' + initialState);
 const todo = (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_TODO':
-      return {
+      return Object.assign({}, state, 
+      {
         items: [
           ...state.items,
           {
@@ -36,17 +36,12 @@ const todo = (state = initialState, action) => {
           text: action.text,
           importance: action.importance
         }],
-        currentImportance: 4,
-        importance: state.importance
-      }
+        currentImportance: 4
+      })
     case 'DELETE_TODO': 
-      return  {
+      return  Object.assign({}, state, {
         items: state.items.filter((el)=> el.id != action.id),
-        currentImportance: 4,
-        importance: state.importance  
-      }
-
-      
+        currentImportance: 4})      
     case 'SORT_DATA':
       return Object.assign({}, state, {currentImportance: action.number})
     default:

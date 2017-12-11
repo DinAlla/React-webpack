@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import DegreeOfImportanceComponent from '../components/DegreeOfImportanceComponent.jsx';
-import { sortTodo } from '../actions';
+import { bindActionCreators } from 'redux';
+import * as actions from '../actions';
 
 const mapStateToProps = (state) => {
   return {
@@ -9,11 +10,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return {
-    sortData: (number)=>{
-      dispatch(sortTodo(number))            
-    }
-  }
+  return bindActionCreators({sortData: actions.sortTodo}, dispatch)
 }
 
 const DegreeOfImportanceContainer  = connect(
