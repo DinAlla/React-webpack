@@ -4,22 +4,23 @@ import './DegreeOfImportanceComponent.css';
 class DegreeOfImportanceComponent extends React.Component{
   constructor(props){
     super(props);
-    this.sortData = this.sortData.bind(this);
+    this.sortingData = this.sortingData.bind(this);
     }
-
-  sortData(e) {
-    console.log("key in Degree " + e.target.value);
+    
+  sortingData(e){
     this.props.sortData(e.target.value);
   }
 
   render(){
+    const {data} = this.props;
     return(
       <div id='DegreeOfImportance'>
         <h3>Фильтры</h3>
-        <ul onClick={this.sortData}> 
-          {this.props.data.map((item, i)=>(
-            <li key={item.value} value={item.value}>{item.message}</li>
-          ))
+        <ul onClick={this.sortingData}> 
+          {
+            data.map((item, i)=>(
+              <li key={item.value} value={item.value} >{item.message}</li>
+            ))
           }
         </ul>
       </div>

@@ -1,5 +1,4 @@
 import React from 'react';
-import ImportanceComponent from './ImportanceComponent.jsx'
 
 class ButtonsComponent extends React.Component {
   constructor(props) {
@@ -19,17 +18,17 @@ class ButtonsComponent extends React.Component {
    	});
   }
 
-  handleChangeImportance(value){
+  handleChangeImportance(e){
     this.setState({
-   	  importance: value
+   	  importance: e.target.value
     });
   }
-
+  
   handleSubmit(text, importance){
     if(!this.state.text.length){
       return;
     }
-    this.props.submit(text, importance);
+    this.props.Click(text, importance);
     this.setState({
       importance: '',
       text: ''
@@ -37,20 +36,22 @@ class ButtonsComponent extends React.Component {
   }
   
   render(){
+    const {data, Click} = this.props;
     return(
       <div>
         <input onChange={this.handleChangeInput} value={this.state.text}/>
         <div id='btns'>
           <button onClick={()=>{this.handleSubmit(this.state.text, this.state.importance)}} id="add">
-	        Add #{this.props.items.length + 1}
-	      </button>
-	      <button onClick={this.props.delete} id="del">
-	        Deleted
-	      </button>
-          <ImportanceComponent onChangeData={this.handleChangeImportance} data={this.props.data}/>
-         </div>
+	        Add 
+	        </button>
+          <select size = "1" id = "importance" onChange={this.handleChangeImportance}>
+	          {data.map((item, i)=>(
+              <option key={item.value} value={item.value}>{item.message}</option>
+	          ))}
+          </select>
+        </div>
       </div>
-	)
+	  )
   }	
 }
 
