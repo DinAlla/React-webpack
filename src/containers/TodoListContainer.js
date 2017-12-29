@@ -6,7 +6,7 @@ import { getCurrentItems } from '../selectors/index.js';
 
 const mapStateToProps = (state) => {
   return {
-    todos: getCurrentItems(state)
+    todos: getCurrentItems(state.reducer)
   }
 }
 

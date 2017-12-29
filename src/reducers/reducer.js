@@ -21,7 +21,8 @@ let initialState = {
     {
       value:'4',
       message: 'Показать все'
-    }]
+    }],
+  isFetching: false
 };
 
 const todo = (state = initialState, action) => {
@@ -35,6 +36,7 @@ const todo = (state = initialState, action) => {
           id: action.id,
           text: action.text,
           importance: action.importance
+          //оунер нейм 
         }],
         currentImportance: 4
       })

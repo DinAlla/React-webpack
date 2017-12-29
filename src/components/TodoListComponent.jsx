@@ -6,7 +6,7 @@ class TodoListComponent extends React.Component {
   }
  
   removeItem(item, onTodoClick) {
-    onTodoClick(item)
+    onTodoClick(item);
   }
 
   render() {

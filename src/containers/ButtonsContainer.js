@@ -5,7 +5,7 @@ import * as actions from '../actions';
 
 const mapStateToProps = (state) => {
   return {
-    data: state.importance.slice(0,4)
+    data: state.reducer.importance.slice(0,4)
   }
 }
 

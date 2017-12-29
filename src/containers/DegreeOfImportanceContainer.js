@@ -5,7 +5,7 @@ import * as actions from '../actions';
 
 const mapStateToProps = (state) => {
   return {
-    data: state.importance
+    data: state.reducer.importance
   }
 }
 
