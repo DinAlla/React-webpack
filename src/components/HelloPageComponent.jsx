@@ -7,8 +7,8 @@ class HelloPageComponent extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit(e) {
-    setTimeout(onLoginClick(e.target.name.value, e.target.password.value),10000);
+  handleSubmit(e, onLoginClick) { 
+    this.props.onLoginClick(e.target.name.value, e.target.password.value)
   }
 
   render() {

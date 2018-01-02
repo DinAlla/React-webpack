@@ -1,5 +1,5 @@
 const express = require('express');
-const PORT = 7050;
+const PORT = 7010;
 const PUBLIC_PATH = __dirname;
 const app = express();
 
