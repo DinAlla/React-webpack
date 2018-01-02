@@ -1,12 +1,12 @@
 const express = require('express');
-const PORT = 8070;
+const PORT = 7050;
 const PUBLIC_PATH = __dirname;
 const app = express();
 
 app.use(express.static(__dirname + '/public'));
 
 //не знаю как правильно ответить на запрос
-app.use("/actions/index", (req, res)=>{
+app.use("/loading", (req, res)=>{
   res.end({token: 'token', userName: req.userName});
 });
 

@@ -1,18 +1,23 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions';
-import HelloPageComponent from '../component/HelloPageComponent.jsx'
+import HelloPageComponent from '../components/HelloPageComponent.jsx'
   
-const mapDispatchToProps = (dispatch) => {   
-  return bindActionCreators({ onLoginClick: actions.LoginUserRequest }, dispatch);
-}
-
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state) => {
+  return {
   token: state.users.token,
   userName: state.users.userName,
   isAuthenticated: state.users.isAuthenticated
-})
+  }
+}
 
-return connect(mapStateToProps)(HelloPageComponent);
+const mapDispatchToProps = (dispatch) => {   
+  return bindActionCreators({ onLoginClick: actions.LoginUserRequest }, dispatch)
+}
+
+const HelloPageContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(HelloPageComponent)
   
 export default HelloPageContainer;

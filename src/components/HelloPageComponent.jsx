@@ -8,10 +8,12 @@ class HelloPageComponent extends React.Component {
   }
 
   handleSubmit(e) {
-    onLoginClick(e.target.name, e.target.password);
+    setTimeout(onLoginClick(e.target.name.value, e.target.password.value),10000);
   }
 
   render() {
+    const {isAuthenticated, onLoginClick} = this.props;
+    console.log(this.props.isAuthenticated);
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
@@ -19,7 +21,7 @@ class HelloPageComponent extends React.Component {
           <br />Password<input type="text" name="password" />
           <br /><input type="submit" value="Login" />
         </form>
-        {this.props.isAuthenticated === true
+        { this.props.isAuthenticated === true
           ? <AppComponent />
           : null
         }
@@ -27,3 +29,5 @@ class HelloPageComponent extends React.Component {
     );
   }
 }
+
+export default HelloPageComponent;

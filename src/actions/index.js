@@ -47,8 +47,8 @@ function LoadingError(errors) {
 export const LoginUserRequest = (userName, password) => {
   return (dispatch) => {
     dispatch(LoadingStart());
-    return dispatch(fetch('../server.js', userName, password)
-      .then(parseResponse)
+    console.log("Start loading");
+    return dispatch(fetch('/loading', userName, password)
       .then(({token, userName})=>dispatch(LoadingSuccess(token, userName)))
       .catch(({error})=>dispatch(LoadingError(error)))
     );
