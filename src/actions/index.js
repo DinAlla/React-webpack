@@ -1,4 +1,3 @@
-import {fetch, parseResponse} from 'redux-oauth';
 
 export const addTodo = (text, importance) => {
   return {
@@ -40,18 +39,30 @@ function LoadingSuccess(token, userName){
 function LoadingError(errors) {
   return {
     type: 'LOGIN_USER_FAILURE',
-    error
+    errors
   }
 }
 
 export const LoginUserRequest = (userName, password) => {
   return (dispatch) => {
     dispatch(LoadingStart());
-    console.log("Start loading");
-    return dispatch(fetch('/loading', userName, password)
-      .then(({token, userName})=>dispatch(LoadingSuccess(token, userName)))
-      .catch(({error})=>dispatch(LoadingError(error)))
-    );
+    let toFetch = {
+      userNameToFetch: userName,
+      passwordToFetch: password
+    };
+    console.log("Start loading" + toFetch.passwordToFetch);
+    return fetch("/loading",{
+      method: 'POST',
+      credentials: 'include',
+      body: JSON.stringify(toFetch),
+      })
+      .then((response) => response.json())
+      .then((responseJson)=>{
+        console.log('in first then ' + responseJson);
+        dispatch(LoadingSuccess(responseJson.token, responseJson.userName))})
+      .catch((error)=>{
+        console.log('error+' +error);
+        dispatch(LoadingError(error))});
   }
 }
 

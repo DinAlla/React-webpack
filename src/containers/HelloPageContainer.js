@@ -7,7 +7,8 @@ const mapStateToProps = (state) => {
   return {
     token: state.users.token,
     userName: state.users.userName,
-    isAuthenticated: state.users.isAuthenticated
+    isAuthenticated: state.users.isAuthenticated,
+    isAuthenticating: state.users.isAuthenticating
   }
 }
 

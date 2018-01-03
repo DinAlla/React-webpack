@@ -7,6 +7,5 @@ import { authStateReducer } from 'redux-oauth';
 export default combineReducers({
   reducer,
   users,
-  auth: authStateReducer,
   routing: routerReducer
 });

@@ -27,7 +27,7 @@ export default (state = initialState, action) => {
         isAuthenticated: false,
         token: null,
         userName: null,
-        statusText: 'Authentication Error: ${action.error}'
+        statusText: 'Authentication Error: ${action.errors}'
       })
     case 'LOGOUT_USER':
       return Object.assign({}, state, {

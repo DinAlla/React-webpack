@@ -1,6 +1,6 @@
 import React from 'react';
 import './HeaderComponent.css';
-
+import AppComponent from './AppComponent.jsx'
 class HelloPageComponent extends React.Component {
   constructor(props) {
     super(props);
@@ -21,7 +21,8 @@ class HelloPageComponent extends React.Component {
           <br />Password<input type="text" name="password" />
           <br /><input type="submit" value="Login" />
         </form>
-        { this.props.isAuthenticated === true
+        { 
+          this.props.isAuthenticated === true
           ? <AppComponent />
           : null
         }
