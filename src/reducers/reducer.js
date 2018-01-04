@@ -35,8 +35,8 @@ const todo = (state = initialState, action) => {
           {
           id: action.id,
           text: action.text,
-          importance: action.importance
-          //оунер нейм 
+          importance: action.importance,
+          name: action.name
         }],
         currentImportance: 4
       })

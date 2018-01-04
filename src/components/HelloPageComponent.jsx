@@ -8,23 +8,23 @@ class HelloPageComponent extends React.Component {
   }
 
   handleSubmit(e, onLoginClick) { 
+    e.preventDefault();
     this.props.onLoginClick(e.target.name.value, e.target.password.value)
   }
 
   render() {
     const {isAuthenticated, onLoginClick} = this.props;
-    console.log(this.props.isAuthenticated);
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <br />Name<input type="text" name="name" />
-          <br />Password<input type="text" name="password" />
-          <br /><input type="submit" value="Login" />
-        </form>
         { 
           this.props.isAuthenticated === true
           ? <AppComponent />
-          : null
+          : 
+          <form onSubmit={this.handleSubmit}>
+          <br />Name<input type="text" name="name" />
+          <br />Password<input type="text" name="password" />
+          <br /><input type="submit" value="Login" />
+          </form>
         }
       </div>
     );

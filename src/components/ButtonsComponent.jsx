@@ -24,11 +24,11 @@ class ButtonsComponent extends React.Component {
     });
   }
   
-  handleSubmit(text, importance){
+  handleSubmit(text, importance, name){
     if(!this.state.text.length){
       return;
     }
-    this.props.Click(text, importance);
+    this.props.Click(text, importance, name);
     this.setState({
       importance: '',
       text: ''
@@ -36,12 +36,12 @@ class ButtonsComponent extends React.Component {
   }
   
   render(){
-    const {data, Click} = this.props;
+    const {data, Click, name} = this.props;
     return(
       <div>
         <input onChange={this.handleChangeInput} value={this.state.text}/>
         <div id='btns'>
-          <button onClick={()=>{this.handleSubmit(this.state.text, this.state.importance)}} id="add">
+          <button onClick={()=>{this.handleSubmit(this.state.text, this.state.importance, name)}} id="add">
 	        Add 
 	        </button>
           <select size = "1" id = "importance" onChange={this.handleChangeImportance}>

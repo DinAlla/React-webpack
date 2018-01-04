@@ -1,10 +1,12 @@
+import axios from 'axios'
 
-export const addTodo = (text, importance) => {
+export const addTodo = (text, importance, name) => {
   return {
     type: 'ADD_TODO',
     text:text,
     id:  Date.now(),
-    importance    
+    importance,
+    name   
   }
 }
 
@@ -31,8 +33,8 @@ function LoadingStart() {
 function LoadingSuccess(token, userName){
   return {
     type: 'LOGIN_USER_SUCCESS',
-    token: token,
-    userName: userName
+    token,
+    userName
   }
 }
 
@@ -46,22 +48,13 @@ function LoadingError(errors) {
 export const LoginUserRequest = (userName, password) => {
   return (dispatch) => {
     dispatch(LoadingStart());
-    let toFetch = {
+    return axios.post('/loading',{
       userNameToFetch: userName,
       passwordToFetch: password
-    };
-    console.log("Start loading" + toFetch.passwordToFetch);
-    return fetch("/loading",{
-      method: 'POST',
-      credentials: 'include',
-      body: JSON.stringify(toFetch),
       })
-      .then((response) => response.json())
-      .then((responseJson)=>{
-        console.log('in first then ' + responseJson);
-        dispatch(LoadingSuccess(responseJson.token, responseJson.userName))})
+      .then(response=>{
+        dispatch(LoadingSuccess(response.data.token, response.data.userName))})
       .catch((error)=>{
-        console.log('error+' +error);
         dispatch(LoadingError(error))});
   }
 }

@@ -9,7 +9,8 @@ import { BrowserRouter, IndexRoute } from 'react-router-dom';
 const Root = ({store}) => (
   <Provider store={store} >
     <BrowserRouter history={browserHistory}>
-     <Route path="/" component={HelloPageContainer}/>
+      <Route component={HelloPageContainer}>
+      </Route>
     </BrowserRouter>
   </Provider>
 );

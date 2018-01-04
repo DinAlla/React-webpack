@@ -14,7 +14,7 @@ class TodoListComponent extends React.Component {
     return (
       <ul>
         {todos.map((item, i) => (
-          <li key={item.id}>{item.text} Важность: { +item.importance + 1}<button onClick={()=>{this.removeItem(item.id, onTodoClick)}} id="onli">Х</button></li>
+          <li key={item.id}>{item.text} Важность: { +item.importance + 1} Author: {item.name}<button onClick={()=>{this.removeItem(item.id, onTodoClick)}} id="onli">Х</button></li>
         ))
     	  }
       </ul>

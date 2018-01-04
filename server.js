@@ -1,24 +1,24 @@
 const express = require('express');
-const PORT = 8052;
+const PORT = 1149;
 const PUBLIC_PATH = __dirname;
 const app = express();
+const bodyParser = require('body-parser');
+
+let urlencodedParser = bodyParser.json();
 
 app.use(express.static(__dirname + '/public'));
 
-app.get("/loading", async(req, res)=>{
-  console.log("Loading in server " + req.body.toFetch.userNameToFetch + req.body.toFetch.passwordToFetch);
-  let tryFetch = {
-    token: 'token', 
-    userName: req.body.toFetch.userNameToFetch
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use("/loading", (req, res) => {
+  let toRes  = {
+    token: 'token',
+    userName: req.body.userNameToFetch
   };
-  res.json(tryFetch);
+  res.send(toRes);
 });
 
-app.use("/*",(req, res)=>{
-  res.sendFile(PUBLIC_PATH + '/public/index.html');
-});
-
-
-app.listen(PORT, function(){
-    console.log('Listening on port ' + PORT + '...');
+app.listen(PORT, function () {
+  console.log('Listening on port ' + PORT + '...');
 });
