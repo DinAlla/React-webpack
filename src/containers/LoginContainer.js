@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions';
-import HelloPageComponent from '../components/HelloPageComponent.jsx'
+import LoginComponent from '../components/LoginComponent.jsx'
 
 const mapStateToProps = (state) => {
   return {
@@ -12,8 +12,13 @@ const mapStateToProps = (state) => {
   }
 }
 
-const HelloPageContainer = connect(
-  mapStateToProps
-)(HelloPageComponent)
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({ onLoginClick: actions.LoginUserRequest }, dispatch)
+}
 
-export default HelloPageContainer;
+const LoginContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LoginComponent)
+
+export default LoginContainer;

@@ -6,7 +6,11 @@ class HeaderComponent extends React.Component {
   render() {
     return (
       <header>
-        <LogoutContainer />
+        {
+          this.props.isAuthenticated === true
+          ? <LogoutContainer />
+          : null
+        }
       </header>
     );
   }

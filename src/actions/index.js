@@ -48,7 +48,7 @@ function LoadingError(errors) {
 export const LoginUserRequest = (userName, password) => {
   return (dispatch) => {
     dispatch(LoadingStart());
-    return axios.post('/loading',{
+    return axios.post('/dataChecking',{
       userNameToFetch: userName,
       passwordToFetch: password
       })
