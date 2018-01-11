@@ -1,7 +1,6 @@
 import React from 'react';
 import './HeaderComponent.css';
 import HeaderContainer from '../containers/HeaderContainer.js';
-import { Link } from 'react-router';
 
 class HelloPageComponent extends React.Component {
   render() {

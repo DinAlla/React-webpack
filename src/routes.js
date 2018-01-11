@@ -11,7 +11,7 @@ const Root = ({store}) => (
   <Provider store={store} >
     <BrowserRouter history={history}>
     <Switch>
-      <Route path="/" component={HelloPageContainer} />
+        <Route path="/" component={HelloPageContainer} />
         <Route path='/login' component={LoginContainer}/>
         <Route path='/app' component={MainComponent}/>
     </Switch>
