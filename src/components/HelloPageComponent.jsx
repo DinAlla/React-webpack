@@ -1,6 +1,10 @@
 import React from 'react';
 import './HeaderComponent.css';
 import HeaderContainer from '../containers/HeaderContainer.js';
+import { Link, browserHistory } from 'react-router'
+import {Route} from 'react-router';
+import LoginContainer from '../containers/LoginContainer.js';
+import MainComponent from '../components/MainComponent.jsx';
 
 class HelloPageComponent extends React.Component {
   render() {
@@ -10,8 +14,8 @@ class HelloPageComponent extends React.Component {
         <HeaderContainer />
         { 
           this.props.isAuthenticated === true
-          ? this.props.history.push('/app')
-          : this.props.history.push('/login')
+          ? App
+          : browserHistory.push('/login')
         }
       </div>
     );
