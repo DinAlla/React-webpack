@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions';
 import HeaderComponent from '../components/HeaderComponent.jsx'
+import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state) => {
   return {
@@ -11,6 +12,6 @@ const mapStateToProps = (state) => {
 
 const HeaderContainer = connect(
   mapStateToProps
-)(HeaderComponent)
+)(HeaderComponent);
 
 export default HeaderContainer;

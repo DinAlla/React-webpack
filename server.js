@@ -1,5 +1,5 @@
 const express = require('express');
-const PORT = 1200;
+const PORT = 1233;
 const PUBLIC_PATH = __dirname;
 const app = express();
 const bodyParser = require('body-parser');
@@ -17,6 +17,10 @@ app.use("/dataChecking", (req, res) => {
     userName: req.body.userNameToFetch
   };
   res.send(toRes);
+});
+
+app.get("/*", function(req, res){
+  res.sendFile(PUBLIC_PATH + '/public/index.html');
 });
 
 app.listen(PORT, function () {

@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import ButtonsComponent from '../components/ButtonsComponent.jsx';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions';
+import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state) => {
   return {
@@ -17,6 +18,6 @@ const mapDispatchToProps = (dispatch) => {
 const ButtonsContainer  = connect(
   mapStateToProps,
   mapDispatchToProps
-)(ButtonsComponent)
+)(ButtonsComponent);
 
 export default ButtonsContainer;

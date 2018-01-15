@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import DegreeOfImportanceComponent from '../components/DegreeOfImportanceComponent.jsx';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions';
+import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state) => {
   return {
@@ -16,6 +17,6 @@ const mapDispatchToProps = (dispatch) => {
 const DegreeOfImportanceContainer  = connect(
   mapStateToProps,
   mapDispatchToProps
-)(DegreeOfImportanceComponent)
+)(DegreeOfImportanceComponent);
 
 export default DegreeOfImportanceContainer;

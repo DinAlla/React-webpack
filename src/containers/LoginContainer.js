@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions';
 import LoginComponent from '../components/LoginComponent.jsx'
+import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state) => {
   return {
@@ -16,9 +17,9 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({ onLoginClick: actions.LoginUserRequest }, dispatch)
 }
 
-const LoginContainer = connect(
+const LoginContainer = withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(LoginComponent)
+)(LoginComponent));
 
 export default LoginContainer;

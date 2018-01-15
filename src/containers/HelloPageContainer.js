@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions';
 import HelloPageComponent from '../components/HelloPageComponent.jsx'
+import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state) => {
   return {
@@ -14,6 +15,6 @@ const mapStateToProps = (state) => {
 
 const HelloPageContainer = connect(
   mapStateToProps
-)(HelloPageComponent)
+)(HelloPageComponent);
 
 export default HelloPageContainer;

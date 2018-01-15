@@ -38,7 +38,9 @@ module.exports = {
 		  template: './src/index.html'
 		}),
 		new ExtractTextPlugin('[name].css')
-	]
+	],
+
+	watch: true
 };
 
 

@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 import * as actions from '../actions';
 import TodoListComponent from '../components/TodoListComponent.jsx';
 import { getCurrentItems } from '../selectors/index.js';
+import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state) => {
   return {
@@ -17,6 +18,6 @@ const mapDispatchToProps = (dispatch) => {
 const TodoListContainer  = connect(
   mapStateToProps,
   mapDispatchToProps
-)(TodoListComponent)
+)(TodoListComponent);
 
 export default TodoListContainer;
