@@ -31,6 +31,8 @@ function LoadingStart() {
 }
 
 function LoadingSuccess(token, userName){
+  localStorage.setItem('token', token);
+  localStorage.setItem('userName', userName);
   return {
     type: 'LOGIN_USER_SUCCESS',
     token,

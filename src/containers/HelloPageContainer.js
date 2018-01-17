@@ -12,9 +12,12 @@ const mapStateToProps = (state) => {
     isAuthenticating: state.users.isAuthenticating
   }
 }
-
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({ onLoginClick: actions.LoginUserRequest }, dispatch)
+}
 const HelloPageContainer = connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(HelloPageComponent);
 
 export default HelloPageContainer;

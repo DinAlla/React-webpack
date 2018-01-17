@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state) => {
   return {
-    data: state.reducer.importance
+    data: state.todos.importance
   }
 }
 
@@ -14,9 +14,9 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({sortData: actions.sortTodo}, dispatch)
 }
 
-const DegreeOfImportanceContainer  = connect(
+const DegreeOfImportanceContainer  = withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(DegreeOfImportanceComponent);
+)(DegreeOfImportanceComponent));
 
 export default DegreeOfImportanceContainer;

@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state) => {
   return {
-    data: state.reducer.importance.slice(0,4),
+    data: state.todos.importance.slice(0,4),
     name: state.users.userName
   }
 }

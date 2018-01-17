@@ -6,10 +6,16 @@ class LoginComponent extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit(e, onLoginClick) { 
+  handleSubmit(e) { 
     console.log('клик епта ');
     e.preventDefault();
-    this.props.onLoginClick(e.target.name.value, e.target.password.value)
+    this.props.onLoginClick(e.target.name.value, e.target.password.value);
+  }
+
+  componentDidUpdate(){
+    this.props.isAuthenticated === true
+    ? this.props.history.push('/app')
+    : null
   }
 
   render(){
