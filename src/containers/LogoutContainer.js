@@ -6,7 +6,8 @@ import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state) => {
   return {
-    name: state.users.userName
+    name: state.users.userName,
+    isAuthenticated: state.users.isAuthenticated
   }
 }
 
@@ -14,9 +15,9 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({Click: actions.LogoutUser}, dispatch)
 }
 
-const LogoutContainer  = connect(
+const LogoutContainer  = withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(LogoutComponent);
+)(LogoutComponent));
 
 export default LogoutContainer;

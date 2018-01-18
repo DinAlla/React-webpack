@@ -1,5 +1,5 @@
 const express = require('express');
-const PORT = 1242;
+const PORT = 1244;
 const PUBLIC_PATH = __dirname;
 const app = express();
 const bodyParser = require('body-parser');
@@ -20,7 +20,6 @@ app.use("/dataChecking", (req, res) => {
 });
 
 app.use("/checkTocken", (req, res)=>{
-  console.log('server ' + req.body.data);
   if(req.body.data === 'token') res.send('true')
   else res.console.error();
   ;

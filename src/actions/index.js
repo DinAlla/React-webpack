@@ -49,18 +49,14 @@ function LoadingError(errors) {
 
 export const LoginUserRequest = (userName, password) => {
   return (dispatch) => {
-    console.log('1');
     dispatch(LoadingStart());
-    console.log('2');
     return axios.post("/dataChecking",{
       userNameToFetch: userName,
       passwordToFetch: password
       })
       .then((response)=>{
-        console.log('3');
         dispatch(LoadingSuccess(response.data.token, response.data.userName))})
       .catch((error)=>{
-        console.log('4'+error);
         dispatch(LoadingError(error))});
   }
 }

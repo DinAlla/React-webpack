@@ -11,17 +11,21 @@ class LogoutComponent extends React.Component {
   }
 
   redirect(location){
-    this.props.history.push(location);
+    history.push(location);
   }
 
-  handleSubmit(){
+  componentDidUpdate(){
+    if(this.props.isAuthenticated === false) this.props.history.push('/login');
+  }
+
+  handleSubmit(e){
+    e.preventDefault();
     this.props.Click();
-    <Redirect to="/"/>
+    if(this.props.isAuthenticated === false) this.props.history.push('/login');
   }
   
   render(){
     const {Click, name} = this.props;
-    console.log(this.props.history + ' in logout');
     return (
       <div>
       Hello, {name}!
