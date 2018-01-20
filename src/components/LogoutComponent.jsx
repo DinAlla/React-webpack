@@ -7,11 +7,6 @@ class LogoutComponent extends React.Component {
   constructor(props){
     super(props);
     this.handleSubmit=this.handleSubmit.bind(this);
-    this.redirect=this.redirect.bind(this);
-  }
-
-  redirect(location){
-    history.push(location);
   }
 
   componentDidUpdate(){

@@ -1,5 +1,5 @@
 const express = require('express');
-const PORT = 1244;
+const PORT = 1246;
 const PUBLIC_PATH = __dirname;
 const app = express();
 const bodyParser = require('body-parser');
@@ -11,7 +11,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use("/dataChecking", (req, res) => {
+app.use("/logIn", (req, res) => {
   let toRes  = {
     token: 'token',
     userName: req.body.userNameToFetch
@@ -22,7 +22,6 @@ app.use("/dataChecking", (req, res) => {
 app.use("/checkTocken", (req, res)=>{
   if(req.body.data === 'token') res.send('true')
   else res.console.error();
-  ;
 })
 
 app.get("/*", function(req, res){

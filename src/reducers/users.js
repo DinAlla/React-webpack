@@ -3,7 +3,8 @@ let initialState = {
   userName: null,
   isAuthenticated: false,
   isAuthenticating: false,
-  statusText: null
+  statusText: null,
+  location: 'login'
 };
 
 export default (state = initialState, action) => {
@@ -19,7 +20,8 @@ export default (state = initialState, action) => {
         isAuthenticated: true,
         token: action.token,
         userName:  action.userName,
-        statusText: 'All good'
+        statusText: 'All good',
+        location: '/app'
       })
     case 'LOGIN_USER_FAILURE':
       return Object.assign({}, state,{
@@ -27,7 +29,8 @@ export default (state = initialState, action) => {
         isAuthenticated: false,
         token: null,
         userName: null,
-        statusText: 'Authentication Error: ${action.errors}'
+        statusText: 'Authentication Error: ${action.errors}',
+        location: '/login'
       })
     case 'LOGOUT_USER':
       return Object.assign({}, state, {
@@ -35,6 +38,11 @@ export default (state = initialState, action) => {
         token: null,
         userName: null,
         statusText: 'You have been successfully logged out.'
+      })
+    case 'FAILURE_TOKEN':
+      return Object.assign({}, state, {
+        isAuthenticated: false,
+        location: '/login'
       })
     default:
       return state;

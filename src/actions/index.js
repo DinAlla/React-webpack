@@ -50,7 +50,7 @@ function LoadingError(errors) {
 export const LoginUserRequest = (userName, password) => {
   return (dispatch) => {
     dispatch(LoadingStart());
-    return axios.post("/dataChecking",{
+    return axios.post("/logIn",{
       userNameToFetch: userName,
       passwordToFetch: password
       })
@@ -64,5 +64,24 @@ export const LoginUserRequest = (userName, password) => {
 export const LogoutUser = () => {
   return {
     type: 'LOGOUT_USER'
+  }
+}
+
+function failureToken(){
+  return{
+    type: 'FAILURE_TOKEN'
+  }
+}
+
+export const CheckToken = () => {
+  let data = localStorage.getItem('token');
+  return (dispatch) => {
+    axios.post("/checkTocken", {data: data})
+    .then((res)=>{
+      dispatch(LoginUserRequest(localStorage.getItem('token'),localStorage.getItem('userName')));
+    })
+    .catch((err)=>{
+      dispatch(failureToken())
+    })
   }
 }

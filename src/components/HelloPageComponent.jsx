@@ -13,19 +13,14 @@ class HelloPageComponent extends React.Component {
     super(props);
     this.redirect=this.redirect.bind(this);
   }
-  
+
   redirect(location){
     this.props.history.push(location);
   }
-  
+
   componentWillMount(){
-    let data = localStorage.getItem('token');
-    axios.post("/checkTocken", {data: data})
-      .then((res)=>{
-        this.props.onLoginClick(localStorage.getItem('token'),localStorage.getItem('userName'));
-        this.redirect('/app')})
-      .catch((err)=>{
-        this.redirect('/login')})
+    this.props.checkToken();
+    this.redirect(this.props.location);
   }
 
   render() {

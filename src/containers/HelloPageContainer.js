@@ -9,11 +9,15 @@ const mapStateToProps = (state) => {
     token: state.users.token,
     userName: state.users.userName,
     isAuthenticated: state.users.isAuthenticated,
-    isAuthenticating: state.users.isAuthenticating
+    isAuthenticating: state.users.isAuthenticating,
+    location: state.users.location
   }
 }
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ onLoginClick: actions.LoginUserRequest }, dispatch)
+    return bindActionCreators({ 
+      onLoginClick: actions.LoginUserRequest,
+      checkToken: actions.CheckToken
+    }, dispatch)
 }
 const HelloPageContainer = connect(
   mapStateToProps,
