@@ -1,5 +1,5 @@
 let initialState = {
-  token: null,
+  accessToken: null,
   userName: null,
   isAuthenticated: false,
   isAuthenticating: false,
@@ -18,7 +18,7 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {
         isAuthenticating: false,
         isAuthenticated: true,
-        token: action.token,
+        accessToken: action.token,
         userName:  action.userName,
         statusText: 'All good',
         location: '/app'
@@ -27,7 +27,7 @@ export default (state = initialState, action) => {
       return Object.assign({}, state,{
         isAuthenticating: false,
         isAuthenticated: false,
-        token: null,
+        accessToken: null,
         userName: null,
         statusText: 'Authentication Error: ${action.errors}',
         location: '/login'
@@ -35,7 +35,7 @@ export default (state = initialState, action) => {
     case 'LOGOUT_USER':
       return Object.assign({}, state, {
         isAuthenticated: false,
-        token: null,
+        accessToken: null,
         userName: null,
         statusText: 'You have been successfully logged out.'
       })

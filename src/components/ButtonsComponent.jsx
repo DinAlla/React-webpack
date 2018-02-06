@@ -1,15 +1,20 @@
 import React from 'react';
+import RaisedButton from 'material-ui/RaisedButton';
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
+import TextField from 'material-ui/TextField';
 
 class ButtonsComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       text: ' ',
-      importance: ' '
+      importance: '0'
     };
     this.handleChangeInput = this.handleChangeInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChangeImportance = this.handleChangeImportance.bind(this);
+    this.someSubmit = this.someSubmit.bind(this);
   }
 
   handleChangeInput(e){
@@ -18,9 +23,10 @@ class ButtonsComponent extends React.Component {
    	});
   }
 
-  handleChangeImportance(e){
+  handleChangeImportance(e, index, value){
+    e.preventDefault();
     this.setState({
-   	  importance: e.target.value
+   	  importance: value
     });
   }
   
@@ -35,24 +41,71 @@ class ButtonsComponent extends React.Component {
     });
   }
   
+  someSubmit(){
+    this.props.ClickOnCancel();
+    this.setState({
+      importance: '',
+      text: ''
+    });
+  }
+
   render(){
     const {data, Click, name} = this.props;
+
     return(
       <div>
-        <input onChange={this.handleChangeInput} value={this.state.text}/>
-        <div id='btns'>
-          <button onClick={()=>{this.handleSubmit(this.state.text, this.state.importance, name)}} id="add">
-	        Add 
-	        </button>
-          <select size = "1" id = "importance" onChange={this.handleChangeImportance}>
-	          {data.map((item, i)=>(
-              <option key={item.value} value={item.value}>{item.message}</option>
+        <TextField 
+        onChange={this.handleChangeInput} 
+        value={this.state.text}
+        floatingLabelText="Например: купить кроссовки или помыть посуду"
+        style={{
+          marginLeft: '20px',
+          width: '700px'
+        }}/>
+        <div>
+          <RaisedButton 
+            backgroundColor = "#d14836" 
+            label="Добавить запись" 
+            labelColor = '#FFFFFF'
+            labelStyle={{
+              fontFamily: 'serif',
+              fontSize: '90%'
+            }}
+            onClick={()=>{
+              this.handleSubmit(this.state.text, this.state.importance, name)
+            }}
+          />
+          <RaisedButton
+            label="Отменить"
+            style={{
+              marginLeft: '10px',
+              border: '0',
+              boxShadow: '0'
+            }}
+            labelStyle={{
+              fontSize: '90%'
+            }}
+            onClick={()=>{this.someSubmit()}}
+          />
+          <SelectField 
+            size = "1" 
+            id = "importance" 
+            onChange={this.handleChangeImportance} 
+            floatingLabelText="Степень важности задачи"
+          >
+            {data.map((item, i)=>(
+              <MenuItem 
+                key={item.value} 
+                value={item.value} 
+                primaryText={`Степень важности ${+item.value + 1}`}
+              >
+              </MenuItem>
 	          ))}
-          </select>
+          </SelectField>
         </div>
       </div>
 	  )
   }	
 }
 
-export default ButtonsComponent
+export default ButtonsComponent;

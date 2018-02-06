@@ -12,7 +12,10 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {   
-  return bindActionCreators({ Click: actions.addTodo }, dispatch);
+  return bindActionCreators({ 
+    Click: actions.addTodo,
+    ClickOnCancel: actions.delLastTodo
+  }, dispatch);
 }
 
 const ButtonsContainer  = connect(

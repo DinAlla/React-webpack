@@ -17,6 +17,11 @@ export const delTodo = (id) => {
   }
 }
 
+export const delLastTodo = () =>{
+  return {
+    type: 'DELETE_LAST_TODO'
+  }
+}
 export const sortTodo = (number) => {
   return {
     type: 'SORT_DATA',
@@ -31,7 +36,7 @@ function LoadingStart() {
 }
 
 function LoadingSuccess(token, userName){
-  localStorage.setItem('token', token);
+  localStorage.setItem('accessToken', token);
   localStorage.setItem('userName', userName);
   return {
     type: 'LOGIN_USER_SUCCESS',
@@ -64,24 +69,5 @@ export const LoginUserRequest = (userName, password) => {
 export const LogoutUser = () => {
   return {
     type: 'LOGOUT_USER'
-  }
-}
-
-function failureToken(){
-  return{
-    type: 'FAILURE_TOKEN'
-  }
-}
-
-export const CheckToken = () => {
-  let data = localStorage.getItem('token');
-  return (dispatch) => {
-    axios.post("/checkTocken", {data: data})
-    .then((res)=>{
-      dispatch(LoginUserRequest(localStorage.getItem('token'),localStorage.getItem('userName')));
-    })
-    .catch((err)=>{
-      dispatch(failureToken())
-    })
   }
 }

@@ -1,5 +1,5 @@
 const express = require('express');
-const PORT = 1246;
+const PORT = 8080;
 const PUBLIC_PATH = __dirname;
 const app = express();
 const bodyParser = require('body-parser');
@@ -22,7 +22,7 @@ app.use("/logIn", (req, res) => {
 app.use("/checkTocken", (req, res)=>{
   if(req.body.data === 'token') res.send('true')
   else res.console.error();
-})
+});
 
 app.get("/*", function(req, res){
   res.sendFile(PUBLIC_PATH + '/public/index.html');

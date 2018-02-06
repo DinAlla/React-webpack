@@ -1,7 +1,7 @@
 import React from 'react';
 import {Route, Redirect} from 'react-router';
 import LoginContainer from '../containers/LoginContainer';
-import { Link, browserHistory as history } from 'react-router';
+import RaisedButton from 'material-ui/RaisedButton';
 
 class LogoutComponent extends React.Component {
   constructor(props){
@@ -22,10 +22,22 @@ class LogoutComponent extends React.Component {
   render(){
     const {Click, name} = this.props;
     return (
-      <div>
-      Hello, {name}!
-      <button onClick={this.handleSubmit}>Logout</button>
-      </div>
+      <RaisedButton
+        label="Logout"
+        style={{
+          marginLeft: '10px',
+          border: '0',
+          boxShadow: '0',
+          width: '100px',
+          height: '20px',
+          float: 'right',
+          clear: 'lest',
+        }}
+        labelStyle={{
+          fontSize: '90%'
+        }}
+        onClick={()=>{this.handleSubmit()}}
+      />
     )
   }
 }
