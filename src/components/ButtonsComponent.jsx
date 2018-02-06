@@ -71,6 +71,9 @@ class ButtonsComponent extends React.Component {
               fontFamily: 'serif',
               fontSize: '90%'
             }}
+            style={{
+              marginLeft: '20px'
+            }}
             onClick={()=>{
               this.handleSubmit(this.state.text, this.state.importance, name)
             }}
