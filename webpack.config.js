@@ -39,7 +39,7 @@ module.exports = {
 		}),
 		new ExtractTextPlugin('[name].css')
 	],
-	
+
 	watch: true
 };
 
